@@ -2,6 +2,6 @@ const http = require('http');
 const shell = require('shelljs');
 
 http.createServer((req, res) => {
-  shell.exec('./build.sh');
+  req.url === 'front' ? shell.exec('./front.sh') : shell.exec('./back.sh');
   res.end();
-}).listen(8080);
+}).listen(8887);
